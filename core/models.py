@@ -39,9 +39,12 @@ class Parametros(models.Model):
 class MovRotativo(models.Model):
     checkin = models.DateTimeField(auto_now=False)
     checkout = models.DateTimeField(auto_now=False, null=True, blank=True)
-    valor_hora = models.DecimalField(max_digits=5, decimal_places=2)
+    valor_hora = models.DecimalField(max_digits=6, decimal_places=2)
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     pago = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.veiculo.placa
 
     def horas_total(self):
         if self.checkout is not None:
@@ -54,9 +57,6 @@ class MovRotativo(models.Model):
             return (self.valor_hora * self.horas_total())
         else:
             pass
-
-    def __str__(self):
-        return self.veiculo.placa
 
 
 class Mensalista(models.Model):
