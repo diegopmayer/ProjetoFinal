@@ -1,0 +1,7 @@
+<h1>lista Pessoas</h1>
+
+<ul>
+{% for pessoa in pessoas %}
+    <table>{{ pessoa.nome }} - {{ pessoa.endereco }}</table>
+{% endfor %}
+</ul>
