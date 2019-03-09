@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from .models import Pessoa, Veiculo, MovRotativo, MovMensalista, Mensalista
-
+from .models import (
+    Pessoa, 
+    Veiculo, 
+    MovRotativo, 
+    MovMensalista, 
+    Mensalista
+)
+from .forms import PessoaForm
 
 def home(request):
     context = {
@@ -11,7 +17,9 @@ def home(request):
 
 def lista_pessoas(request):
     pessoas = Pessoa.objects.all()
-    return render(request, 'core/lista_pessoas.html', {'pessoas': pessoas})
+    form = PessoaForm()
+    return render(request, 'core/lista_pessoas.html', 
+        {'pessoas': pessoas, 'form': form})
 
 
 def lista_veiculos(request):

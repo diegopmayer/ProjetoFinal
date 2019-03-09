@@ -1,7 +1,23 @@
-<h1>lista Pessoas</h1>
-
-<ul>
-{% for pessoa in pessoas %}
-    <table>{{ pessoa.nome }} - {{ pessoa.endereco }}</table>
-{% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta>
+        <title>Página de Pessoas</title>
+    </head>
+    <body>
+        <div>
+            <h1>lista de Pessoas</h1>
+            <ul>
+            {% for pessoa in pessoas %}
+                <table>{{ pessoa.nome }} - {{ pessoa.endereco }}</table>
+            {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <form action="" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </body>
+</html>

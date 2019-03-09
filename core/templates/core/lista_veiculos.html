@@ -1,6 +1,7 @@
 <h1>Lista de Veículos</h1>
 <ul>
-{% for veiculo in veiculos %}
-    <li>{{ veiculo.placa }}</li>
-{% endfor %}
+    <h4>Veículo</h4>
+    {% for veiculo in veiculos %}
+        <table>{{ veiculo.placa }}</table>
+    {% endfor %}
 </ul>
