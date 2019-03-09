@@ -1,0 +1,12 @@
+<h1>Lista de Mensalistas</h1>
+
+<ul>
+{% for mensal in mensalistas %}
+    <li>{{ mensal }}</li>
+{% endfor %}
+</ul>
+
+<form action="{% url 'core_mensalista_add' %}" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>

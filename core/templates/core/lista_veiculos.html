@@ -5,3 +5,10 @@
         <table>{{ veiculo.placa }}</table>
     {% endfor %}
 </ul>
+<ul>
+    <h4>Cadastro de novo Veículo</h4>
+    <form action="{% url 'core_veiculos_add' %}" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submitd">Salvar</button>
+    </form>
+</ul>

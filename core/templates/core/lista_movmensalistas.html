@@ -5,3 +5,10 @@
     <li>{{ mov.mensalista }}</li>
 {% endfor %}
 </ul>
+
+<div>
+    <form action="{% url 'core_mov_mensalista_add' %}" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+</div>
