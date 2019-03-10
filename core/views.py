@@ -4,13 +4,16 @@ from .models import (
     Veiculo, 
     MovRotativo, 
     MovMensalista, 
-    Mensalista)
+    Mensalista
+)
+
 from .forms import (
     PessoaForm,
     VeiculoForm,
     MovRotativoForm,
     MovMensalistaForm,
-    MensalistaForm)
+    MensalistaForm
+)
 
 
 def home(request):

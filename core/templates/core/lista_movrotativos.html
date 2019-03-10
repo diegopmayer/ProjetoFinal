@@ -7,6 +7,6 @@
 </ul>
 
 <form action="{% url 'core_mov_rot_add' %}" method="POST">{% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <button type="submit">Salvar</button>
 </form>

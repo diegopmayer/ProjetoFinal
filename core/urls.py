@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^mov-rot-add/$', mov_rot_add, name='core_mov_rot_add'),
     url(r'^mov-mensalistas/$', lista_movmensalista, 
         name='core_lista_movmensalista'),
-    url(r'^mov-mensalista-add/$', mov_mensalista_add, 
+    url(r'^mov-mensalistas-add/$', mov_mensalista_add, 
         name='core_mov_mensalista_add'),
     url(r'^mensalistas/$', lista_mensalista, name='core_lista_mensalista'),
     url(r'^mensalistas-add/$', mensalista_add, name='core_mensalista_add'),
