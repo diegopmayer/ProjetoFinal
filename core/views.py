@@ -38,6 +38,23 @@ def pessoas_add(request):
     else:
         form = PessoaForm()
     return redirect('core_lista_pessoas')
+
+
+def pessoas_update(request, id):
+    pessoa = Pessoa.objects.get(id=id)
+    form = PessoaForm(request.POST or None, instance=pessoa)
+    data ={
+        'pessoa': pessoa,
+        'form': form,
+    }
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_pessoa')
+    else:
+        return render(request, 'core/update_pessoa.html',data)
+
 #--------FIM------------Cadastro de Pessoas----------------
 
 
@@ -56,6 +73,22 @@ def veiculos_add(request):
     else:
         form = VeiculoForm()
     return redirect('core_lista_veiculos')
+
+
+def veiculos_update(request, id):
+    veiculo = Veiculo.objects.get(id=id)
+    form = VeiculoForm(request.POST or None, instance=veiculo)
+    data = {
+        'veiculo': veiculo,
+        'form': form,
+    }
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_veiculos')
+    else:
+        return render(request, 'core/update_veiculos.html', data)
+
 #--------FIM------------Cadastro de VEÍCULOS----------------
 
 

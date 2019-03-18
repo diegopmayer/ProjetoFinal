@@ -44,7 +44,7 @@ class MovRotativo(models.Model):
     pago = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.veiculo.placa
+        return self.veiculo.placa + ' - ' + self.veiculo.cor
 
     def horas_total(self):
         if self.checkout is not None:

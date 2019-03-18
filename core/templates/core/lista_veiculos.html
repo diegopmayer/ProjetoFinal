@@ -2,7 +2,9 @@
 <ul>
     <h4>Veículo</h4>
     {% for veiculo in veiculos %}
-        <table>{{ veiculo.placa }}</table>
+        <li>
+            <a href="{% url 'core_veiculos_update' veiculo.id %}">{{ veiculo.placa }}</a>
+        </li>
     {% endfor %}
 </ul>
 <ul>
