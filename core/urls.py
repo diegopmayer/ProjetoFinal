@@ -1,10 +1,10 @@
 from django.conf.urls import url
 from .views import (
     home, 
-    lista_pessoas, 
-    lista_veiculos, 
-    lista_movrotativos, 
-    lista_movmensalista, 
+    lista_pessoas,
+    lista_veiculos,
+    lista_movrotativos,
+    lista_movmensalista,
     lista_mensalista,
     pessoas_add,
     veiculos_add,

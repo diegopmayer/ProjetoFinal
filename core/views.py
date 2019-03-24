@@ -51,7 +51,7 @@ def pessoas_update(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('core_lista_pessoa')
+            return redirect('core_lista_pessoas')
     else:
         return render(request, 'core/update_pessoa.html',data)
 
