@@ -2,12 +2,15 @@
 
 <ul>
 {% for mov in mov_mens %}
-    <li>{{ mov.mensalista }}</li>
+    <a href="{% url 'mov_mensalista_update' mov.id %}">
+        <li>{{ mov }}</li>
+    </a>
 {% endfor %}
 </ul>
 
 <div>
-    <form action="{% url 'core_mov_mensalista_add' %}" method="POST">{% csrf_token %}
+    <form action="{% url 'core_mov_mensalista_add' %}" method="POST">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Salvar</button>
     </form>

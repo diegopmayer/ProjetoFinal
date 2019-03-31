@@ -74,4 +74,4 @@ class MovMensalista(models.Model):
     total = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return self.mensalista
+        return str(self.mensalista)

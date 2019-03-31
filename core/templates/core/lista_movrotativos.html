@@ -10,7 +10,8 @@
 {% endfor %}
 </ul>
 
-<form action="{% url 'core_mov_rot_add' %}" method="POST">{% csrf_token %}
+<form action="{% url 'core_mov_rot_add' %}" method="POST">
+    {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Salvar</button>
 </form>

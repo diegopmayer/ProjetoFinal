@@ -122,7 +122,6 @@ def mov_rot_update(request, id):
             return redirect('core_lista_movrotativos')
     else:
         return render(request, 'core/update_mov_rot.html', data)
-
 #--------FIM------------Cadastro de MOVIMENTAÇÕES ROTATIVOS----------------
 
 
@@ -141,6 +140,21 @@ def mov_mensalista_add(request):
     else:
         form = MovMensalistaForm()
     return redirect('core_lista_movmensalista')
+
+
+def mov_mensalista_update(request, id):
+    mov_mensalista = MovMensalista.objects.get(id=id)
+    form = MovMensalistaForm(request.POST or None, instance=mov_mensalista)
+    data = {
+        'mov_mensalista': mov_mensalista,
+        'form': form,
+    }
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_movmensalista')
+    else:
+        return render(request, 'core/update_mov_mensalista.html', data)
 #--------FIM------------Cadastro de MOVIMENTAÇÕES MENSALISTAS----------------
 
 
@@ -159,4 +173,19 @@ def mensalista_add(request):
     else:
         form = MensalistaForm()
     return redirect('core_lista_mensalista')
+
+
+def mensalista_update(request, id):
+    mensalista = Mensalista.objects.get(id=id)
+    form = MensalistaForm(request.POST or None, instance=mensalista)
+    data = {
+        'mensalista': mensalista,
+        'form': form,
+    }
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_mensalista')
+    else:
+        return render(request, 'core/update_mensalista.html', data)
 #--------FIM------------Cadastro MENSALISTAS----------------

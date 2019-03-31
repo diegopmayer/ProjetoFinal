@@ -1,0 +1,7 @@
+<h1>Updating Movimentações de Mensalistas {{ mov_mensalista }}</h1>
+
+<form action="{% url 'mov_mensalista_update' mov_mensalista.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar Alterações</button>
+</form>

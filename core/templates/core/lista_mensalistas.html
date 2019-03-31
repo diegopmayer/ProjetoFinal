@@ -2,7 +2,11 @@
 
 <ul>
 {% for mensal in mensalistas %}
-    <li>{{ mensal }}</li>
+    <li>
+        <a href="{% url 'mensalista_update' mensal.id %}">
+            {{ mensal }}
+        </a>
+    </li>
 {% endfor %}
 </ul>
 
