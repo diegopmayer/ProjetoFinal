@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.urls import path
 from .views import (
     home, 
     lista_pessoas,
@@ -13,13 +14,17 @@ from .views import (
     mensalista_add,
     pessoas_update,
     veiculos_update,
+    mov_rot_update,
     )
 
 urlpatterns = [
     url(r'^$', home, name='core_home'),
     url(r'^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     url(r'^pessoas-add/$', pessoas_add, name='core_pessoas_add'),
-    url(r'^pessoas-update/(?P<id>\d+)/$', pessoas_update, name='core_pessoas_update'),
+    #url(r'^pessoas-update/(?P<id>\d+)/$', pessoas_update, 
+    # name='core_pessoas_update'), VERSÃO ANTIGA DO DJANGO - 
+    # VERSÃO NOVA ABAIXO (PATH)
+    path('^pessoas-update/<int:id>/', pessoas_update, name='core_pessoas_update'),
 
     url(r'^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     url(r'^veiculos-add/$', veiculos_add, name='core_veiculos_add'),
@@ -27,6 +32,7 @@ urlpatterns = [
 
     url(r'^mov-rot-list/$', lista_movrotativos, name='core_lista_movrotativos'),
     url(r'^mov-rot-add/$', mov_rot_add, name='core_mov_rot_add'),
+    path('mov-rot-update/<int:id>/', mov_rot_update, name='mov_rot_update'),
 
     url(r'^mov-mensalistas/$', lista_movmensalista, 
         name='core_lista_movmensalista'),

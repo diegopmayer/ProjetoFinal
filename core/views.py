@@ -107,6 +107,22 @@ def mov_rot_add(request):
     else:
         form = MovRotativoForm()
     return redirect('core_lista_movrotativos')
+
+
+def mov_rot_update(request, id):
+    mov_rot = MovRotativo.objects.get(id=id)
+    form = MovRotativoForm(request.POST or None, instance=mov_rot)
+    data = {
+        'mov_rot': mov_rot,
+        'form': form,
+    }
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_movrotativos')
+    else:
+        return render(request, 'core/update_mov_rot.html', data)
+
 #--------FIM------------Cadastro de MOVIMENTAÇÕES ROTATIVOS----------------
 
 
