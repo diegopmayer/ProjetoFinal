@@ -6,3 +6,8 @@
     {{ form.as_p }}
     <button type="submit">Salvar Alterações</button>
 </form>
+
+
+<button type="button">
+    <a href="{% url 'core_pessoas_delete' pessoa.id %}"> Deletar </a>
+</button>
