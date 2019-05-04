@@ -17,16 +17,15 @@ from .views import (
     mov_rot_update,
     mov_mensalista_update,
     mensalista_update,
+    pessoas_delete,
     )
 
 urlpatterns = [
     url(r'^$', home, name='core_home'),
     url(r'^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     url(r'^pessoas-add/$', pessoas_add, name='core_pessoas_add'),
-    #url(r'^pessoas-update/(?P<id>\d+)/$', pessoas_update, 
-    # name='core_pessoas_update'), VERSÃO ANTIGA DO DJANGO - 
-    # VERSÃO NOVA ABAIXO (PATH)
     path('pessoas-update/<int:id>/', pessoas_update, name='core_pessoas_update'),
+    path('pessoas-delete/<int:id>/', pessoas_delete, name='core_pessoas_delete'),
 
     url(r'^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     url(r'^veiculos-add/$', veiculos_add, name='core_veiculos_add'),

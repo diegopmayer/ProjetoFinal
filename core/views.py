@@ -55,6 +55,14 @@ def pessoas_update(request, id):
     else:
         return render(request, 'core/update_pessoa.html',data)
 
+def pessoas_delete(request, id):
+    pessoa = Pessoa.objects.get(id=id)
+    if request.method == 'POST':
+        pessoa.delete()
+        return redirect('core_lista_pessoas')
+    else:
+        return render(request, 'core/delete_confirm.html', {'pessoa': pessoa})
+
 #--------FIM------------Cadastro de Pessoas----------------
 
 
