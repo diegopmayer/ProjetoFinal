@@ -97,14 +97,14 @@ def veiculos_update(request, id):
     else:
         return render(request, 'core/update_veiculos.html', data)
 
+
 def veiculos_delete(request, id):
     veiculo = Veiculo.objects.get(id=id)
     if request.method == 'POST':
         veiculo.delete()
         return redirect('core_lista_veiculos')
     else:
-        return render(request, 'core/delete_confirm.html', 
-        {'obj': veiculo})
+        return render(request, 'core/delete_confirm.html', {'obj': veiculo})
 
 #--------FIM------------Cadastro de VEÍCULOS----------------
 
@@ -139,6 +139,15 @@ def mov_rot_update(request, id):
             return redirect('core_lista_movrotativos')
     else:
         return render(request, 'core/update_mov_rot.html', data)
+
+
+def mov_rot_delete(request, id):
+    mov_rot = MovRotativo.objects.get(id=id)
+    if request.method == 'POST':
+        mov_rot.delete()
+        return redirect('core_lista_movrotativos')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': mov_rot})
 #--------FIM------------Cadastro de MOVIMENTAÇÕES ROTATIVOS----------------
 
 

@@ -5,3 +5,7 @@
     {{ form.as_p }}
     <button type="submit">Salvar Alterações</button>
 </form>
+
+<button type="button">
+    <a href="{% url 'core_mov_rot_delete' mov_rot.id %}"> Deletar </a>
+</button>
