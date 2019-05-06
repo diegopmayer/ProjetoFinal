@@ -20,6 +20,7 @@ from .views import (
     pessoas_delete,
     veiculos_delete,
     mov_rot_delete,
+    mov_mensalista_delete,
     )
 
 urlpatterns = [
@@ -43,7 +44,9 @@ urlpatterns = [
         name='core_lista_movmensalista'),
     url(r'^mov-mensalistas-add/$', mov_mensalista_add, 
         name='core_mov_mensalista_add'),
-    path('mov-mensalista-update/<int:id>/', mov_mensalista_update, name='core_mov_mensalista_update'),
+    path('mov-mensalista-update/<int:id>/', mov_mensalista_update, 
+        name='core_mov_mensalista_update'),
+    path('mov-mensalista-delete/<int:id>/', mov_mensalista_delete, name='mov_mensalista_delete'),
 
     url(r'^mensalistas/$', lista_mensalista, name='core_lista_mensalista'),
     url(r'^mensalistas-add/$', mensalista_add, name='core_mensalista_add'),

@@ -181,6 +181,16 @@ def mov_mensalista_update(request, id):
             return redirect('core_lista_movmensalista')
     else:
         return render(request, 'core/update_mov_mensalista.html', data)
+
+    
+def mov_mensalista_delete(request, id):
+    mov_mensalista = MovMensalista.objects.get(id=id)
+    if request.method == 'POST':
+        mov_mensalista.delete()
+        return redirect('core_lista_movmensalista')
+    else:
+        return render(request, 'core/delete_confirm.html', 
+        {'obj': mov_mensalista})
 #--------FIM------------Cadastro de MOVIMENTAÇÕES MENSALISTAS----------------
 
 
