@@ -224,4 +224,13 @@ def mensalista_update(request, id):
             return redirect('core_lista_mensalista')
     else:
         return render(request, 'core/update_mensalista.html', data)
+
+
+def mensalista_delete(request, id):
+    mensalista = Mensalista.objects.get(id=id)
+    if request.method == 'POST':
+        mensalista.delete()
+        return redirect('core_lista_mensalista')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': mensalista})
 #--------FIM------------Cadastro MENSALISTAS----------------
