@@ -1,9 +1,13 @@
-<!Doctype html>
+{% load static %}
+
+<!DOCTYPE html>
 <html>
     <header>
-        <link rel="stylesheet" href="/core/templates/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <title>Base</title>
     </header>
     <body>
-
+        {% block main %}
+        {% endblock %}
     </body>
 </html>
