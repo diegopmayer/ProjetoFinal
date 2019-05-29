@@ -17,10 +17,7 @@ from .forms import (
 
 
 def home(request):
-    context = {
-        'mensagem': 'Hello World'
-    }
-    return render(request, 'core/index.html', context)
+    return render(request, 'core/index.html', {})
 
 
 #--------INÍCIO------------Cadastro de Pessoas----------------

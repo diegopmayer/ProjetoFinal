@@ -1,17 +1,40 @@
+<!Doctype html>
+<html>
+    <header>
+        <title>Cadastro de Pessoas</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+    </header>
+    <body>
+        
+        <h1>Lista de Pessoas</h1>
+        <nav class="navbar navbar-light bg-light">
+            <ul>
+                {% for pessoa in pessoas %}
+                    <li>
+                        <a href="{% url 'core_pessoas_update' pessoa.id %}">
+                            <button class="btn btn-outline-success">
+                                {{ pessoa.nome }}
+                            </button>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline" action="{% url 'core_pessoas_add' %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-sm btn-outline-success" type="submit" >Salvar</button>
+            </form>
+        </nav>
+        <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                  <button class="btn btn-outline-success" type="button">Botão principal</button>
+                  <button class="btn btn-sm btn-outline-secondary" type="button">Botão menor</button>
+                </form>
+              </nav>
+    </body>
 
-<h1>lista de Pessoas</h1>
-<ul>
-    {% for pessoa in pessoas %}
-        <li>
-            <a href="{% url 'core_pessoas_update' pessoa.id %}">
-                {{ pessoa.nome }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
-
-<form action="{% url 'core_pessoas_add' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+</html>
