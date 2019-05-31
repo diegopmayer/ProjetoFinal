@@ -1,20 +1,34 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
 {% block main %}
-<h1>Lista de Mensalistas</h1>
 
-<ul>
-{% for mensal in mensalistas %}
-    <li>
-        <a href="{% url 'core_mensalista_update' mensal.id %}">
-            {{ mensal }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
+<div class="container-fluid" style="background-image: url('http://www.locuspark.com.br/wp-content/uploads/2014/02/banner_background_1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <nav class="navbar navbar-light" style="background-color: aliceblue">
+            <a class="bavbar-brand"><h2>Lista de Mensalistas</h2></a>
+        </nav>
 
-<form action="{% url 'core_mensalista_add' %}" method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="{% url 'core_mensalista_add' %}" style="color: aliceblue" method="POST">{% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-light">Salvar</button>
+            </form>
+        </div>
+
+        <div class="col-sm-6">
+            <ul><h3>Lista de Mensalistas</h3>
+            {% for mensal in mensalistas %}
+                <li>
+                    <a href="{% url 'core_mensalista_update' mensal.id %}">
+                        {{ mensal }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
 {% endblock %}
