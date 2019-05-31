@@ -1,21 +1,35 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
+
 {% block main %}
+
 <h1>Movimentações Rotativas</h1>
+<div class="row">
 
-<ul>
-{% for mov in mov_rot %}
-    <li>
-        <a href="{% url 'core_mov_rot_update' mov.id %}">
-            {{ mov }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
+    <div class="col-sm-3">
+        <form action="{% url 'core_mov_rot_add' %}" method="POST">
+            {% csrf_token %}
+            {{ form.checkin|bootstrap }}
+            {{ form.checkout|bootstrap }}
+            {{ form.valor_hora|bootstrap }}
+            {{ form.veiculo|bootstrap }}
 
-<form action="{% url 'core_mov_rot_add' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+
+    <div class="col-sm-6">
+        <ul>
+            {% for mov in mov_rot %}
+                <li>
+                    <a href="{% url 'core_mov_rot_update' mov.id %}">
+                        {{ mov }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
 {% endblock %}
