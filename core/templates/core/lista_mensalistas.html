@@ -5,7 +5,7 @@
 
 <div class="container-fluid" style="background-image: url('https://s2.best-wallpaper.net/wallpaper/2560x1600/1402/Rolls-Royce-black-luxury-car-in-speed_2560x1600.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <nav class="navbar navbar-light">
-            <a class="bavbar-brand"><h2>Lista de Mensalistas</h2></a>
+            <a class="bavbar-brand"><h2>Cadastro de Mensalistas</h2></a>
         </nav>
 
 
@@ -16,19 +16,19 @@
                 <button type="submit" class="btn btn-light">Salvar</button>
             </form>
         </div>
-
-        <div class="col-sm-6">
-            <ul><h3>Lista de Mensalistas</h3>
-            {% for mensal in mensalistas %}
-                <li>
-                    <a href="{% url 'core_mensalista_update' mensal.id %}">
-                        {{ mensal }}
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
+    </div>
+    <div class="row">
+            <div class="col-sm-6"><br><br><br>
+                <ul><h3>Lista de Mensalistas</h3>
+                    {% for mensal in mensalistas %}
+                        <li>
+                            <a href="{% url 'core_mensalista_update' mensal.id %}">
+                                {{ mensal }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
         </div>
-
     </div>
 </div>
 {% endblock %}
