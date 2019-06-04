@@ -1,29 +1,41 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
 {% block main %}
     <title>Cadastro de Pessoas</title>
-    <h1>Lista de Pessoas</h1>
-    
-    <nav class="navbar navbar-light bg-light">
-        <ul>
-            {% for pessoa in pessoas %}
-                <li>
-                    <a href="{% url 'core_pessoas_update' pessoa.id %}">
-                        <button class="btn btn-outline-success my-2 my-sm-0">
-                            {{ pessoa.nome }}
-                        </button>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
+    <h2>Cadastro de Pessoas</h2><br>
 
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline" action="{% url 'core_pessoas_add' %}" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-sm btn-outline-success" type="submit" >Salvar</button>
-        </form>
-    </nav>
+    <div class="row">
+
+        <div class="col-sm-6">
+            <form action="{% url 'core_pessoas_add' %}" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button class="btn btn-sm btn-outline-success" type="submit" >Salvar</button>
+            </form>
+        </div>
+
+        <div class="col-sm-4">
+            <nav class="navbar navbar-light bg-light">Pessoas Cadastradas
+                <ul><br>
+                    {% for pessoa in pessoas %}
+                        <a href="{% url 'core_pessoas_update' pessoa.id %}">
+                            <button class="btn btn-outline-success my-2 my-sm-0">
+                                {{ pessoa.nome }}
+                            </button>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    
+    <div class="row">
+
+    </div>
+
+
+
 
 {% endblock %}
