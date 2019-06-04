@@ -2,7 +2,10 @@
 
 {% block main %}
     <div class="container">
-        <h1>Updating Pessoa: {{ pessoa }}</h1>
+        <nav class="navbar navbar-light">
+            <h1>Updating Pessoa: {{ pessoa }}</h1>
+        </nav>
+        <br>
 
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline" action="{% url 'core_pessoas_update' pessoa.id %}" method="POST">
@@ -10,9 +13,11 @@
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Salvar Alterações</button>
             </form>
+
             <button class="btn btn-outline-success my-2 my-sm-0">
                 <a href="{% url 'core_pessoas_delete' pessoa.id %}"> Deletar </a>
             </button>
         </nav>
+
     </div>
 {% endblock %}

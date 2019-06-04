@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block main %}
+    <br>
+    <div class="container" style="width: 7cm; height: 7cm; background: rgb(192, 65, 65)">
+        <h1> Tem certeza que deseja deletar {{ obj }}</h1>
 
-<h1> Tem certeza que deseja deletar {{ obj }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-alert">Deletar</button>
+        </form>
+    </div>
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Deletar</button>
-</form>
 
 {% endblock %}
