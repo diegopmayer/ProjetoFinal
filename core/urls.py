@@ -25,7 +25,7 @@ from .views import (
     )
 
 urlpatterns = [
-    url(r'^$', home, name='core_home'),
+    path('', home, name='core_home'),
     url(r'^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     url(r'^pessoas-add/$', pessoas_add, name='core_pessoas_add'),
     path('pessoas-update/<int:id>/', pessoas_update, name='core_pessoas_update'),

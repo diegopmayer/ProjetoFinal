@@ -1,4 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+core/__pycache__/
+core/__pycache__
+
+*.py[cod]
+*$py.class
+*pyc
+.idea
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+
+# Virtual
 venv
 .vscode
 *vscode
+.settings.json
 .vscode/settings.json
