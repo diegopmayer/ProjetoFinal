@@ -15,9 +15,6 @@ from .forms import (
     MensalistaForm
 )
 
-def login(request):
-    return render(request, '/admin/')
-
 
 def home(request):
     return render(request, 'core/index.html', {})

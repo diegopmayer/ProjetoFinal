@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
 from .views import (
-    login,
     home, 
     lista_pessoas,
     lista_veiculos,
@@ -26,8 +25,7 @@ from .views import (
     )
 
 urlpatterns = [
-    path('', home, name='core_home'),
-    path('login/', login, name='login'),
+    path('', home, name='home'),
     url(r'^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     url(r'^pessoas-add/$', pessoas_add, name='core_pessoas_add'),
     path('pessoas-update/<int:id>/', pessoas_update, name='core_pessoas_update'),

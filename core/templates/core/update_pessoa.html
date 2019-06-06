@@ -14,9 +14,8 @@
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Salvar Alterações</button>
             </form>
 
-            <button class="btn btn-outline-success my-2 my-sm-0">
-                <a href="{% url 'core_pessoas_delete' pessoa.id %}"> Deletar </a>
-            </button>
+            <button class="btn btn-outline-danger my-2 my-sm-0">Deletar</button>
+            <a href="{% url 'core_pessoas_delete' pessoa.id %}"></a>
         </nav>
 
     </div>

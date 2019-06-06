@@ -9,6 +9,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'website',
     'bootstrapform',
     'core',
     'django.contrib.admin',
