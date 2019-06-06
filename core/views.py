@@ -4,7 +4,8 @@ from .models import (
     Veiculo, 
     MovRotativo, 
     MovMensalista, 
-    Mensalista
+    Mensalista,
+    Marca,
 )
 
 from .forms import (
@@ -12,7 +13,8 @@ from .forms import (
     VeiculoForm,
     MovRotativoForm,
     MovMensalistaForm,
-    MensalistaForm
+    MensalistaForm,
+    MarcaForm,
 )
 
 
@@ -61,6 +63,15 @@ def pessoas_delete(request, id):
         return render(request, 'core/delete_confirm.html', {'pessoa': pessoa})
 
 #--------FIM------------Cadastro de Pessoas----------------
+
+
+#--------INÍCIO------------Cadastro de MARCAS----------------
+def lista_marcas(request):
+    marca = Marca.objects.all()
+    form = MarcaForm()
+    return render(request, 'core/lista_marcas.html', 
+        {'marca': marca, 'form': form})
+#--------FIM---------------Cadastro de MARCAS----------------
 
 
 #--------INÍCIO------------Cadastro de VEÍCULOS----------------

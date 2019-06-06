@@ -7,6 +7,10 @@ from .views import (
     lista_movrotativos,
     lista_movmensalista,
     lista_mensalista,
+    lista_marcas,
+    #marcas_add,
+    #marcas_updete,
+    #marcas_delete,
     pessoas_add,
     veiculos_add,
     mov_rot_add,
@@ -30,6 +34,11 @@ urlpatterns = [
     url(r'^pessoas-add/$', pessoas_add, name='core_pessoas_add'),
     path('pessoas-update/<int:id>/', pessoas_update, name='core_pessoas_update'),
     path('pessoas-delete/<int:id>/', pessoas_delete, name='core_pessoas_delete'),
+
+    path('marcas/', lista_marcas, name='lista_marcas'),
+    #path('marcas-add/', marcas_add, name='marcas_add'),
+    #path('marcas-update/<int:id>/', marcas_updete, name='marcas_update'),
+    #path('marcas-delete/<int:id>/', marcas_delete, name='marcas_delete'),
 
     url(r'^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     url(r'^veiculos-add/$', veiculos_add, name='core_veiculos_add'),

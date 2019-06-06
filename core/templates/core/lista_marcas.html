@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block main %}
+    <h1>Lista de Marcas</h1>
+
+    <div class="row">
+        <nav class="navbar navbar-light bg-light">
+            <div class="col-sm-12">
+                <form action="{% url 'lista_marcas' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button class="btn btn-outline-success">Salvar</button>
+                </form>
+            </div>
+        </nav>
+        <div class="col-sm-6">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Marca</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

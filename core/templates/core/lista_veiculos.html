@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
 {% block main %}
 <h1>Lista de Veículos</h1>
 <ul>
@@ -13,7 +14,7 @@
 <ul>
     <h4>Cadastro de novo Veículo</h4>
     <form action="{% url 'core_veiculos_add' %}" method="POST">{% csrf_token %}
-        {{ form.as_p }}
+        {{ form|bootstrap }}
         <button type="submitd">Salvar</button>
     </form>
 </ul>
