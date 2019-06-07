@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyi
+*.pyc
 
 # C extensions
 *.so
@@ -103,3 +105,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 .vscode/settings.json
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs.v1/TWUOQy5b2TaGPIYK_aI2evKpupUashbsk33sB8mFVLo=/python.pyi
+XDG_CACHE_HOME/Microsoft/Python Language Server/stubs.v1/r36U1q1IEDB86KRN_-Fmi_Yy4obY2NF5IIIBGCG5j80=/python._ast.pyi
+core/__pycache__/forms.cpython-36.pyc
