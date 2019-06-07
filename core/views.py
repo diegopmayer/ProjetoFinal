@@ -71,6 +71,16 @@ def lista_marcas(request):
     form = MarcaForm()
     return render(request, 'core/lista_marcas.html', 
         {'marca': marca, 'form': form})
+
+
+def marcas_add(request):
+    form = MarcaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    else:
+        form = MarcaForm()
+    return redirect('lista_marcas')
+
 #--------FIM---------------Cadastro de MARCAS----------------
 
 

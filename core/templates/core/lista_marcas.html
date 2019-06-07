@@ -6,24 +6,34 @@
     <h1>Lista de Marcas</h1>
 
     <div class="row">
-        <nav class="navbar navbar-light bg-light">
-            <div class="col-sm-12">
-                <form action="{% url 'lista_marcas' %}" method="POST">
-                    {% csrf_token %}
-                    {{ form|bootstrap }}
-                    <button class="btn btn-outline-success">Salvar</button>
-                </form>
-            </div>
-        </nav>
+
+        <div class="col-sm-5">
+            <form action="{% url 'marcas_add' %}" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button class="btn btn-sm btn-outline-success" type="submit">Salvar</button>
+            </form>
+        </div>
+
         <div class="col-sm-6">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Marca</th>
-                    </tr>
-                </thead>
-            </table>
+            <nav class="navbar navbar-light bg-light">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Marca</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for marcas in marca %}
+                            <tr>
+                                <th scope="row">{{ marcas.id }}</th>
+                                <td>{{ marcas.nome }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </nav>
         </div>
     </div>
 

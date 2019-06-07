@@ -8,7 +8,7 @@ from .views import (
     lista_movmensalista,
     lista_mensalista,
     lista_marcas,
-    #marcas_add,
+    marcas_add,
     #marcas_updete,
     #marcas_delete,
     pessoas_add,
@@ -36,7 +36,7 @@ urlpatterns = [
     path('pessoas-delete/<int:id>/', pessoas_delete, name='core_pessoas_delete'),
 
     path('marcas/', lista_marcas, name='lista_marcas'),
-    #path('marcas-add/', marcas_add, name='marcas_add'),
+    path('marcas-add/', marcas_add, name='marcas_add'),
     #path('marcas-update/<int:id>/', marcas_updete, name='marcas_update'),
     #path('marcas-delete/<int:id>/', marcas_delete, name='marcas_delete'),
 
