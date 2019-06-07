@@ -3,34 +3,43 @@
 {% load bootstrap %}
 
 {% block main %}
-<div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color: aliceblue">
-        <a class="navbar-brand"><h2>Movimentações Rotativas</h2></a>
-    </nav>
-</div>
-<br><br>
+<h1>Cadastro de Movimentações</h1>
 
-<div class="row" style="background-image: url('https://dgq0rlkor3ukz.cloudfront.net/wp-content/uploads/2016/08/Lamborghini-Aventador-1024x683.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<div class="row">
 
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         <form action="{% url 'core_mov_rot_add' %}" method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-outline-success">Salvar</button>
         </form>
     </div>
 
-    <div class="col-sm-6">
-        <ul><h3>Lista de Movimentações</h3>
-            {% for mov in mov_rot %}
-                <li>
-                    <a href="{% url 'core_mov_rot_update' mov.id %}">
-                        {{ mov }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="col-sm-7">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Checkin</th>
+                    <th scope="col">Checkout</th>
+                    <th scope="col">Valor Hora</th>
+                    <th scope="col">Veículo</th>
+                    <th scope="col">Pago</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mov in mov_rot %}
+                    <tr>
+                        <th scope="row">{{ mov.id }}</th>
+                        <td>{{ mov.checkin }}</td>
+                        <td>{{ mov.checkout }}</td>
+                        <td>{{ mov.valor_hora }}</td>
+                        <td>{{ mov.veiculo }}</td>
+                        <td>{{ mov.pago }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
 </div>
 {% endblock %}
